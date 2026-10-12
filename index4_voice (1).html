@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stay Safe Online | CEP Project</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    background:#f5f8ff;
+    color:#172033;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);
+    box-shadow:0 3px 18px rgba(30,50,100,.1);
+}
+
+.nav-container{
+    max-width:1150px;
+    margin:auto;
+    padding:14px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    text-decoration:none;
+    font-size:23px;
+    font-weight:bold;
+    color:#4f6df5;
+}
+
+.logo span{
+    color:#172033;
+}
+
+.nav-links{
+    display:flex;
+    gap:24px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#172033;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ff5fa2;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    padding:140px 25px 80px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 10% 20%,#fff1a8 0,transparent 12%),
+        radial-gradient(circle at 90% 20%,#ffd6e8 0,transparent 15%),
+        radial-gradient(circle at 80% 90%,#dcd2ff 0,transparent 18%),
+        linear-gradient(135deg,#eef5ff,#fff5fb);
+}
+
+.hero-container{
+    max-width:1150px;
+    width:100%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 17px;
+    border-radius:30px;
+    background:white;
+    color:#7955df;
+    font-weight:bold;
+    margin-bottom:20px;
+    box-shadow:0 8px 20px rgba(70,80,150,.12);
+    animation:bounce 2s infinite;
+}
+
+.hero h1{
+    font-size:clamp(48px,7vw,78px);
+    line-height:1;
+    margin-bottom:22px;
+}
+
+.hero h1 .blue{
+    color:#4f6df5;
+}
+
+.hero h1 .pink{
+    color:#ff5fa2;
+}
+
+.hero p{
+    max-width:650px;
+    font-size:19px;
+    color:#59667d;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 23px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+    transition:.3s;
+}
+
+.primary{
+    color:white;
+    background:linear-gradient(135deg,#4f6df5,#8058e8);
+    box-shadow:0 10px 25px rgba(79,109,245,.3);
+}
+
+.primary:hover{
+    transform:translateY(-5px) scale(1.03);
+}
+
+.secondary{
+    color:#7154d8;
+    background:white;
+    border:2px solid #e5ddff;
+}
+
+.secondary:hover{
+    transform:translateY(-5px);
+    border-color:#7154d8;
+}
+
+/* MASCOT */
+.mascot-area{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.mascot{
+    width:310px;
+    height:310px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#fff,#e7edff);
+    box-shadow:0 25px 50px rgba(50,70,140,.2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:145px;
+    position:relative;
+    animation:float 4s ease-in-out infinite;
+}
+
+.mascot:before{
+    content:"⭐";
+    position:absolute;
+    right:15px;
+    top:15px;
+    font-size:42px;
+    animation:spin 5s linear infinite;
+}
+
+.mascot:after{
+    content:"Hi! 👋";
+    position:absolute;
+    top:20px;
+    left:-55px;
+    background:white;
+    padding:9px 15px;
+    border-radius:20px;
+    font-size:15px;
+    font-weight:bold;
+    color:#7255d8;
+    box-shadow:0 7px 20px rgba(40,50,100,.12);
+}
+
+/* FLOATING SHAPES */
+.shape{
+    position:absolute;
+    border-radius:50%;
+    opacity:.65;
+    animation:float 5s ease-in-out infinite;
+}
+
+.shape1{
+    width:35px;
+    height:35px;
+    background:#ff6fae;
+    left:6%;
+    top:30%;
+}
+
+.shape2{
+    width:28px;
+    height:28px;
+    background:#ffd93d;
+    right:10%;
+    top:65%;
+    animation-delay:1s;
+}
+
+.shape3{
+    width:45px;
+    height:45px;
+    background:#55d98b;
+    right:20%;
+    top:12%;
+    animation-delay:2s;
+}
+
+/* GENERAL */
+section{
+    padding:90px 25px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title .emoji{
+    font-size:40px;
+}
+
+.title h2{
+    font-size:40px;
+    margin:5px 0 10px;
+}
+
+.title p{
+    max-width:650px;
+    margin:auto;
+    color:#64748b;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:30px 25px;
+    border-radius:22px;
+    border:2px solid transparent;
+    box-shadow:0 8px 25px rgba(40,60,120,.08);
+    transition:.35s;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-10px) rotate(1deg);
+    border-color:#dce4ff;
+    box-shadow:0 18px 35px rgba(50,70,140,.15);
+}
+
+.icon{
+    width:65px;
+    height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eef3ff;
+    border-radius:18px;
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#64748b;
+    font-size:15px;
+}
+
+/* ABOUT */
+.about{
+    background:white;
+}
+
+.about-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about h2{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.about p{
+    color:#59667d;
+    margin-bottom:15px;
+}
+
+.check-list{
+    list-style:none;
+    margin-top:20px;
+}
+
+.check-list li{
+    margin:12px 0;
+    padding:11px 15px;
+    background:#f5f7ff;
+    border-radius:12px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.check-list li:hover{
+    transform:translateX(7px);
+    background:#edf2ff;
+}
+
+.check-list li:before{
+    content:"⭐";
+    margin-right:10px;
+}
+
+.info-box{
+    padding:45px;
+    border-radius:30px;
+    text-align:center;
+    background:linear-gradient(135deg,#fff2b8,#ffe0ed);
+    box-shadow:0 15px 35px rgba(100,70,100,.1);
+}
+
+.info-box .big-icon{
+    font-size:80px;
+    animation:float 3s ease-in-out infinite;
+}
+
+/* SAFETY */
+.safety-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.safety-item{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    border-left:6px solid #4f6df5;
+    box-shadow:0 7px 22px rgba(30,50,100,.07);
+    transition:.3s;
+}
+
+.safety-item:hover{
+    transform:translateX(7px);
+    border-left-color:#ff5fa2;
+}
+
+.safety-item h3{
+    margin-bottom:7px;
+}
+
+.safety-item p{
+    color:#64748b;
+}
+
+/* SCENARIO */
+.scenario{
+    background:linear-gradient(135deg,#eef5ff,#fff1f7);
+}
+
+.scenario-box{
+    max-width:850px;
+    margin:auto;
+    padding:40px;
+    border-radius:28px;
+    background:white;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(50,70,130,.1);
+}
+
+.scenario-icon{
+    font-size:65px;
+}
+
+.scenario-box h3{
+    font-size:25px;
+    margin:10px 0;
+}
+
+.scenario-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:25px;
+}
+
+.scenario-btn{
+    padding:13px 20px;
+    border:none;
+    border-radius:14px;
+    background:#f2f5ff;
+    font-family:inherit;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.scenario-btn:hover{
+    transform:translateY(-4px);
+    background:#4f6df5;
+    color:white;
+}
+
+#scenarioResult{
+    margin-top:20px;
+    font-weight:bold;
+}
+
+/* QUIZ */
+.quiz-section{
+    background:#f6f8ff;
+}
+
+.quiz-box{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:28px;
+    box-shadow:0 15px 40px rgba(50,70,130,.12);
+    text-align:center;
+}
+
+.progress{
+    height:10px;
+    background:#edf0f8;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0;
+    background:linear-gradient(90deg,#55d98b,#4f6df5);
+    transition:.4s;
+}
+
+.question{
+    font-size:23px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.answers{
+    display:grid;
+    gap:12px;
+}
+
+.answer{
+    padding:14px;
+    border:2px solid #e4e8f2;
+    background:#fafbff;
+    border-radius:14px;
+    cursor:pointer;
+    font-family:inherit;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.answer:hover{
+    background:#eef3ff;
+    border-color:#4f6df5;
+    transform:scale(1.02);
+}
+
+.answer.correct{
+    background:#dcfce7;
+    border-color:#22c55e;
+    color:#15803d;
+}
+
+.answer.wrong{
+    background:#fee2e2;
+    border-color:#ef4444;
+    color:#b91c1c;
+}
+
+.quiz-result{
+    display:none;
+}
+
+.score{
+    font-size:50px;
+    color:#7354d8;
+    font-weight:bold;
+}
+
+/* CTA */
+.cta{
+    padding:90px 25px;
+    background:linear-gradient(135deg,#4169e1,#8b5cf6);
+    color:white;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    max-width:650px;
+    margin:0 auto 30px;
+    color:#e5e9ff;
+}
+
+.cta .btn{
+    background:white;
+    color:#3157d5;
+}
+
+/* FOOTER */
+footer{
+    background:#111a30;
+    color:#cbd5e1;
+    text-align:center;
+    padding:40px 20px;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:8px;
+}
+
+/* ANIMATIONS */
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-5px);
+    }
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    .hero-container,
+    .about-content{
+        grid-template-columns:1fr;
+    }
+
+    .mascot-area{
+        order:-1;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .mascot{
+        width:220px;
+        height:220px;
+        font-size:100px;
+    }
+
+    .mascot:after{
+        left:-15px;
+    }
+
+    .cards,
+    .safety-grid{
+        grid-template-columns:1fr;
+    }
+
+    .title h2,
+    .about h2,
+    .cta h2{
+        font-size:32px;
+    }
+
+    .quiz-box,
+    .scenario-box{
+        padding:25px 18px;
+    }
+}
+</style>
+<style>
+
+/* Sentence voice controls */
+.voice-sentence { display:inline; }
+.voice-btn {
+  display:inline-flex; align-items:center; gap:4px; margin:4px 5px 4px 2px;
+  padding:5px 9px; border:1px solid #cbd5ff; border-radius:999px;
+  background:#fff; color:#4058c9; font:600 12px inherit; cursor:pointer;
+  vertical-align:middle; box-shadow:0 2px 6px rgba(40,60,120,.08);
+}
+.voice-btn:hover { background:#eef3ff; }
+.voice-btn:focus-visible { outline:3px solid #ff5fa2; outline-offset:2px; }
+.voice-controls {
+  position:fixed; right:14px; bottom:14px; z-index:2000; display:flex; gap:8px;
+  padding:8px; border-radius:16px; background:white; box-shadow:0 5px 22px #1720332b;
+}
+.voice-controls button { border:0; border-radius:10px; padding:10px 12px; cursor:pointer; font-weight:bold; }
+@media (max-width:600px) { .voice-controls { right:8px; bottom:8px; } }
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            🔐 <span>Stay Safe!</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#safety">🛡️ Safety</a></li>
+            <li><a href="#risks">⚠️ Risks</a></li>
+            <li><a href="#quiz">🎮 Quiz</a></li>
+            <li><a href="#about">📚 About</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<header class="hero" id="home">
+
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+
+    <div class="hero-container">
+
+        <div>
+
+            <div class="badge">
+                🎓 Community Engagement Project
+            </div>
+
+            <h1>
+                Be a <span class="blue">Superhero</span><br>
+                <span class="pink">Online!</span> 🦸
+            </h1>
+
+            <p>
+                The internet is a wonderful place to learn,
+                play, create and connect! 🌎
+                Learn how to use it safely and become
+                a smart digital citizen.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#safety" class="btn primary">
+                    🛡️ Learn Safety Tips
+                </a>
+
+                <a href="#quiz" class="btn secondary">
+                    🎮 Take the Quiz
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="mascot-area">
+
+            <div class="mascot">
+                🧑‍🚀
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<section>
+
+    <div class="container">
+
+        <div class="title">
+
+            <div class="emoji">🌟</div>
+
+            <h2>Let's Explore!</h2>
+
+            <p>
+                Discover some simple and fun ways
+                to become a digital safety superstar!
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card" onclick="location.href='#safety'">
+
+                <div class="icon">🛡️</div>
+
+                <h3>Safety Tips</h3>
+
+                <p>
+                    Learn easy tricks for protecting
+                    yourself and your accounts.
+                </p>
+
+            </div>
+
+            <div class="card" onclick="location.href='#risks'">
+
+                <div class="icon">⚠️</div>
+
+                <h3>Online Risks</h3>
+
+                <p>
+                    Learn about scams, fake profiles,
+                    phishing and cyberbullying.
+                </p>
+
+            </div>
+
+            <div class="card" onclick="location.href='#quiz'">
+
+                <div class="icon">🎮</div>
+
+                <h3>Safety Quiz</h3>
+
+                <p>
+                    Test your knowledge and discover
+                    your digital safety score!
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon">⭐</div>
+
+                <h3>Safety Star</h3>
+
+                <p>
+                    Make smart choices and help your
+                    friends stay safe online.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="about-content">
+
+            <div>
+
+                <h2>
+                    🌈 Why Does Online Safety Matter?
+                </h2>
+
+                <p>
+                    We use the internet every day to learn,
+                    play games, watch videos, talk with friends
+                    and discover new things.
+                </p>
+
+                <p>
+                    Being safe online helps us enjoy these
+                    activities while protecting our privacy
+                    and personal information.
+                </p>
+
+                <ul class="check-list">
+
+                    <li>Keep personal information private</li>
+
+                    <li>Use strong passwords</li>
+
+                    <li>Think before clicking links</li>
+
+                    <li>Be kind to others online</li>
+
+                    <li>Ask an adult when something feels wrong</li>
+
+                </ul>
+
+            </div>
+
+            <div class="info-box">
+
+                <div class="big-icon">
+                    🌐
+                </div>
+
+                <h2>
+                    You Are a Digital Superhero!
+                </h2>
+
+                <p>
+                    Every smart choice you make online
+                    helps create a safer internet for everyone. 💙
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="safety">
+
+    <div class="container">
+
+        <div class="title">
+
+            <div class="emoji">🛡️</div>
+
+            <h2>Super Safety Tips</h2>
+
+            <p>
+                Remember these simple rules whenever
+                you're online!
+            </p>
+
+        </div>
+
+        <div class="safety-grid">
+
+            <div class="safety-item">
+
+                <h3>🔑 Use Strong Passwords</h3>
+
+                <p>
+                    Create long, unique passwords.
+                    Avoid using your name or birthday.
+                </p>
+
+            </div>
+
+            <div class="safety-item">
+
+                <h3>🔒 Protect Your Privacy</h3>
+
+                <p>
+                    Never publicly share your home address,
+                    phone number, school details or location.
+                </p>
+
+            </div>
+
+            <div class="safety-item">
+
+                <h3>🔗 Think Before You Click</h3>
+
+                <p>
+                    Don't click strange links or download
+                    unexpected files.
+                </p>
+
+            </div>
+
+            <div class="safety-item">
+
+                <h3>👤 Be Careful With Strangers</h3>
+
+                <p>
+                    Be careful when talking to people
+                    you don't know in real life.
+                </p>
+
+            </div>
+
+            <div class="safety-item">
+
+                <h3>🚫 Block & Report</h3>
+
+                <p>
+                    If someone is bullying or bothering you,
+                    block and report them.
+                </p>
+
+            </div>
+
+            <div class="safety-item">
+
+                <h3>🧑‍🏫 Tell a Trusted Adult</h3>
+
+                <p>
+                    If something makes you uncomfortable,
+                    talk to a parent, teacher or trusted adult.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="about" id="risks">
+
+    <div class="container">
+
+        <div class="title">
+
+            <div class="emoji">⚠️</div>
+
+            <h2>Watch Out for These!</h2>
+
+            <p>
+                Knowing about online risks helps you
+                recognize them before they become problems.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">💬</div>
+
+                <h3>Cyberbullying</h3>
+
+                <p>
+                    Hurtful, threatening or embarrassing
+                    behavior using digital platforms.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon">🎣</div>
+
+                <h3>Phishing</h3>
+
+                <p>
+                    Fake messages or websites that try
+                    to trick you into giving information.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon">🎭</div>
+
+                <h3>Fake Profiles</h3>
+
+                <p>
+                    Some accounts may pretend to be
+                    someone they aren't.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon">📱</div>
+
+                <h3>Privacy Risks</h3>
+
+                <p>
+                    Sharing too much personal information
+                    can put your privacy at risk.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="scenario">
+
+    <div class="container">
+
+        <div class="title">
+
+            <div class="emoji">🤔</div>
+
+            <h2>What Would You Do?</h2>
+
+            <p>
+                Let's see if you can make the safe choice!
+            </p>
+
+        </div>
+
+        <div class="scenario-box">
+
+            <div class="scenario-icon">
+                📱😮
+            </div>
+
+            <h3>
+                "Congratulations! 🎉 You won a new phone!
+                Click this link NOW!"
+            </h3>
+
+            <p>
+                You don't remember entering any contest.
+                What should you do?
+            </p>
+
+            <div class="scenario-buttons">
+
+                <button class="scenario-btn"
+                    onclick="scenarioAnswer(true)">
+                    🚫 Don't click it
+                </button>
+
+                <button class="scenario-btn"
+                    onclick="scenarioAnswer(false)">
+                    🎁 Click immediately
+                </button>
+
+                <button class="scenario-btn"
+                    onclick="scenarioAnswer(true)">
+                    🧑‍🏫 Ask an adult
+                </button>
+
+            </div>
+
+            <div id="scenarioResult"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="quiz-section" id="quiz">
+
+    <div class="container">
+
+        <div class="title">
+
+            <div class="emoji">🎮</div>
+
+            <h2>Digital Safety Quiz!</h2>
+
+            <p>
+                Answer the questions and become
+                a Digital Safety Champion! 🏆
+            </p>
+
+        </div>
+
+        <div class="quiz-box">
+
+            <div class="progress">
+
+                <div class="progress-bar"
+                    id="progressBar">
+                </div>
+
+            </div>
+
+            <div id="quizContent">
+
+                <div class="question"
+                    id="question">
+                </div>
+
+                <div class="answers"
+                    id="answers">
+                </div>
+
+            </div>
+
+            <div class="quiz-result"
+                id="quizResult">
+
+                <div class="score"
+                    id="score">
+                    0/5
+                </div>
+
+                <h3>🎉 Quiz Complete!</h3>
+
+                <p id="scoreMessage"></p>
+
+                <button class="btn primary"
+                    onclick="restartQuiz()"
+                    style="margin-top:15px;">
+                    🔄 Play Again
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <h2>
+        Think Before You Click! 🧠
+    </h2>
+
+    <p>
+        Stay curious. Stay kind. Stay smart.
+        And most importantly... stay safe online! 💙
+    </p>
+
+    <a href="#safety" class="btn">
+        🛡️ Become a Safety Star
+    </a>
+
+</section>
+
+<footer>
+
+    <h3>🔐 Stay Safe Online</h3>
+
+    <p>
+        Online Safety of Children & Adolescents
+    </p>
+
+    <p>
+        Community Engagement Project (CEP)
+    </p>
+
+    <p style="margin-top:15px;color:#94a3b8;">
+        © 2026 CEP Project • Educational Awareness Website
+    </p>
+
+</footer>
+
+<script>
+
+function scenarioAnswer(correct){
+
+    const result=document.getElementById("scenarioResult");
+
+    if(correct){
+
+        result.innerHTML=
+        "🌟 Great choice! You're a Safety Superstar! Always stop and check before clicking unexpected links.";
+
+        result.style.color="#16a34a";
+
+    }else{
+
+        result.innerHTML=
+        "⚠️ Be careful! Unexpected prize messages can be scams. Don't click the link.";
+
+        result.style.color="#dc2626";
+
+    }
+
+}
+
+const quiz=[
+
+    {
+        question:"🔐 Which password is safer?",
+        answers:[
+            "password123",
+            "MyDog",
+            "BlueTiger!92#Moon",
+            "123456"
+        ],
+        correct:2
+    },
+
+    {
+        question:"🎣 You receive a strange link from someone you don't know. What should you do?",
+        answers:[
+            "Click it",
+            "Share it with friends",
+            "Ignore it and tell a trusted adult",
+            "Reply with your password"
+        ],
+        correct:2
+    },
+
+    {
+        question:"📱 Which information should you avoid sharing publicly?",
+        answers:[
+            "Your favorite color",
+            "Your home address",
+            "Your favorite cartoon",
+            "Your favorite food"
+        ],
+        correct:1
+    },
+
+    {
+        question:"💬 Someone is bullying you online. What can you do?",
+        answers:[
+            "Bullying them back",
+            "Keep it secret",
+            "Block, report and tell a trusted adult",
+            "Give them your password"
+        ],
+        correct:2
+    },
+
+    {
+        question:"🏆 Someone says you won a prize you never entered. What should you do?",
+        answers:[
+            "Click the link immediately",
+            "Give them your personal information",
+            "Ignore it and check with a trusted adult",
+            "Send them your password"
+        ],
+        correct:2
+    }
+
+];
+
+let currentQuestion=0;
+let score=0;
+
+function loadQuestion(){
+
+    const question=document.getElementById("question");
+    const answers=document.getElementById("answers");
+    const progress=document.getElementById("progressBar");
+
+    const current=quiz[currentQuestion];
+
+    question.textContent=current.question;
+
+    answers.innerHTML="";
+
+    progress.style.width=
+        ((currentQuestion/quiz.length)*100)+"%";
+
+    current.answers.forEach((answer,index)=>{
+
+        const button=document.createElement("button");
+
+        button.className="answer";
+
+        button.textContent=answer;
+
+        button.onclick=()=>{
+            checkAnswer(index,button);
+        };
+
+        answers.appendChild(button);
+
+    });
+
+}
+
+function checkAnswer(selected,button){
+
+    const current=quiz[currentQuestion];
+
+    const allButtons=
+        document.querySelectorAll(".answer");
+
+    allButtons.forEach(btn=>{
+        btn.disabled=true;
+    });
+
+    if(selected===current.correct){
+
+        button.classList.add("correct");
+
+        score++;
+
+    }else{
+
+        button.classList.add("wrong");
+
+        allButtons[current.correct]
+            .classList.add("correct");
+
+    }
+
+    setTimeout(()=>{
+
+        currentQuestion++;
+
+        if(currentQuestion<quiz.length){
+
+            loadQuestion();
+
+        }else{
+
+            finishQuiz();
+
+        }
+
+    },900);
+
+}
+
+function finishQuiz(){
+
+    document.getElementById("quizContent")
+        .style.display="none";
+
+    document.getElementById("quizResult")
+        .style.display="block";
+
+    document.getElementById("progressBar")
+        .style.width="100%";
+
+    document.getElementById("score")
+        .textContent=
+        score+"/"+quiz.length;
+
+    let message="";
+
+    if(score===5){
+
+        message=
+        "🏆 AMAZING! You're a Digital Safety Champion!";
+
+    }else if(score>=3){
+
+        message=
+        "🌟 Great job! You know a lot about online safety!";
+
+    }else{
+
+        message=
+        "💪 Nice try! Read the safety tips and try again!";
+
+    }
+
+    document.getElementById("scoreMessage")
+        .textContent=message;
+
+}
+
+function restartQuiz(){
+
+    currentQuestion=0;
+    score=0;
+
+    document.getElementById("quizContent")
+        .style.display="block";
+
+    document.getElementById("quizResult")
+        .style.display="none";
+
+    loadQuestion();
+
+}
+
+loadQuestion();
+
+</script>
+
+
+<script>
+(function () {
+  if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
+    return;
+  }
+
+  function speak(text) {
+    const clean = (text || '').replace(/\s+/g, ' ').trim();
+    if (!clean) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(clean);
+    utterance.lang = 'en-IN';
+    utterance.rate = 0.92;
+    utterance.pitch = 1;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function addVoiceButton(el) {
+    if (!el || el.dataset.voiceReady === 'true' || el.closest('.voice-controls') ||
+        el.classList.contains('voice-btn')) return;
+    const text = (el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim();
+    if (!text || text.length < 2) return;
+    el.dataset.voiceReady = 'true';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'voice-btn';
+    btn.setAttribute('aria-label', 'Read aloud: ' + text.slice(0, 80));
+    btn.title = 'Listen to this text';
+    btn.innerHTML = '🔊 Listen';
+    btn.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      speak(text);
+    });
+    el.appendChild(btn);
+  }
+
+  function addControls() {
+    const controls = document.createElement('div');
+    controls.className = 'voice-controls';
+    controls.innerHTML = '<button type="button" id="readAllVoice">▶ Read page</button><button type="button" id="stopVoice">⏹ Stop</button>';
+    document.body.appendChild(controls);
+    controls.querySelector('#stopVoice').addEventListener('click', function () {
+      window.speechSynthesis.cancel();
+    });
+    controls.querySelector('#readAllVoice').addEventListener('click', function () {
+      const blocks = Array.from(document.querySelectorAll('body p, body h1, body h2, body h3, body li, body .safety-item, body .card, body .scenario-box > h3, body .scenario-box > p'))
+        .filter(el => !el.closest('.voice-controls') && !el.classList.contains('voice-btn'));
+      const texts = blocks.map(el => (el.innerText || '').replace(/🔊 Listen/g, '').trim()).filter(Boolean);
+      window.speechSynthesis.cancel();
+      const combined = texts.join('. ');
+      const utterance = new SpeechSynthesisUtterance(combined);
+      utterance.lang = 'en-IN';
+      utterance.rate = 0.92;
+      window.speechSynthesis.speak(utterance);
+    });
+  }
+
+  function enhance(root) {
+    root.querySelectorAll('p, h1, h2, h3, li, .question, .answer, #scenarioResult, #scoreMessage').forEach(addVoiceButton);
+  }
+
+  function init() {
+    enhance(document);
+    addControls();
+    const observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        mutation.addedNodes.forEach(function (node) {
+          if (node.nodeType === 1) {
+            if (node.matches && node.matches('p, h1, h2, h3, li, .question, .answer, #scenarioResult, #scoreMessage')) addVoiceButton(node);
+            enhance(node);
+          }
+        });
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+</body>
+</html>
